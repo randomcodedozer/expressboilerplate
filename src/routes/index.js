@@ -12,7 +12,7 @@ router.get('/status', function (req, res) {
     res.send({
         version: metadata.version,
         description: metadata.description,
-        lastcommitsha: 'asdf'
+        lastcommitsha: process.env.SHA || 'not set'
     })
 })
 

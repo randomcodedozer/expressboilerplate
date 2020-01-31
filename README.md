@@ -9,3 +9,4 @@ branching model
 comments
 README
 Logging
+Could use other build tools such as make, cmake etc
