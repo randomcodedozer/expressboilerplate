@@ -11,5 +11,5 @@ jobs:
           - npm test
     - stage: build docker image
       script:
-          - npm build
+          - npm run build
 
