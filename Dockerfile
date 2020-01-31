@@ -1,8 +1,8 @@
 FROM node:10-alpine
 WORKDIR /usr/src/app
 COPY package*.json ./
+# install dep modules
 RUN npm install
-RUN npm run build
 
 # Bundle app source
 COPY . .
