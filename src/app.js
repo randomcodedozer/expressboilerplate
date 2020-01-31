@@ -3,8 +3,10 @@ const express = require('express')
 const path = require('path')
 const HOMEDIR = path.join(__dirname)
 const config = require(path.join(HOMEDIR, 'config'))
+const helmet = require('helmet')
 
 const app = express()
+app.use(helmet());
 const rootRouter = require(path.join(HOMEDIR, 'routes'))
 app.use('/', rootRouter)
 
