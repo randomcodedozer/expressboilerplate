@@ -13,6 +13,5 @@ COPY --from=build /opt/expressciboilerplate .
 COPY . .
 EXPOSE 8080
 
-
 CMD ["node", "src/app.js"]
 

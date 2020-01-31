@@ -4,7 +4,6 @@
   "description": "express ci boilerplate",
   "main": "src/app.js",
   "scripts": {
-    "build": "docker build -t randomcodedozer/expressciboilerplate:$TRAVIS_BUILD_NUMBER --build-arg SHA=$(git rev-parse --short HEAD) .",
     "start": "SHA=$(git rev-parse --short HEAD) node src/app.js",
     "test": "mocha src/tests --exit"
   },
