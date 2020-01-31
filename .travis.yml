@@ -1,5 +1,16 @@
 language: node_js
 node_js:
     - 10
+services:
+    - docker
 
+jobs:
+  include:
+    - stage: install & test
+        install: npm install
+        script: 
+            - npm test
+    - stage: build docker image
+        script:
+            - npm build
 
