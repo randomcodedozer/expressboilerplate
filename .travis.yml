@@ -1,21 +1,22 @@
 language: node_js
 node_js:
-    - 10
+- 10
 services:
-    - docker
+- docker
 jobs:
   include:
-    - stage: test
-      install: npm install
-      script: 
-          - npm test
-    - stage: build docker image
-      script:
-          - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-          - npm run build
-          - docker images
-          - docker tag $DOCKER_USERNAME/expressciboilerplate:$TRAVIS_BUILD_NUMBER $DOCKER_USERNAME/expressciboilerplate:latest 
-          - docker push $DOCKER_USERNAME/expressciboilerplate:latest
-          - docker push $DOCKER_USERNAME/expressciboilerplate:latest
-    
-
+  - stage: test
+    install: npm install
+    script:
+    - npm test
+  - stage: build docker image
+    script:
+    - echo "$DOCKER_PASS" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - npm run build
+    - docker images
+    - docker tag $DOCKER_USERNAME/expressciboilerplate:$TRAVIS_BUILD_NUMBER $DOCKER_USERNAME/expressciboilerplate:latest
+    - docker push $DOCKER_USERNAME/expressciboilerplate:latest
+    - docker push $DOCKER_USERNAME/expressciboilerplate:latest
+env:
+  global:
+    secure: iydTfhS3sgj52ZUyr/ZRTXzb18BUCsKHU5j5xg22d+nZlMwfvipa+rbA4R4NAsP6pswVqgtKABD/uAlP111iit5PUaDPRrWXq7Fe+vHy5LLnK46HLwx1c2rgRw1Kon4XbMBW3TojK3mfCTIudLu4UYSUCJvHCYuNKYjFrz+2H1Mrugwq6eNIk0KvmrNTcNIQXTfikefXtzv1F96isty8DRf86DsaaazHBEEqMpaGjWbxAMpos5wwZfSg4tm1wQ6070umE/8XpX8tLHBuw6dCReB0VzwJ1YHXIfZ0SlH4NmWmoDsWEgyW5ZTWJ6VxqpIsoc8F5vMtmD8TFgWdU/dRZFwzqTPlZQUZzo8pYUyOuBlImQlek0Mas2f3uP/dwcx697YYgOjWVM+4ghrQKAS59k0F4MY8/94+MTgMBZIWhBhCdbJTBcnzWgNeNkiMELm39c3ReLzJOa3gk6tLXmzBPRTgDVY3UfoOu65mPWWUgiXQoP3E8OZa2wFLbrlrhg24+4lcLNf8a6it5MPCx0nw2In2jvsEp6QiwWjm/4sam37onehNLrXcnQfPd1gyNCf75e4MZO4lvRQ/IYjYfy8fG1bsYExehvxl/OntBhvM1z1G3/guzCtM95jcjlf8P7HKI2sbHGtqfdBJKqwdVtpcvKv43xkAD3ATChZ2LlBUtZo=
