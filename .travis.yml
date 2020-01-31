@@ -11,5 +11,11 @@ jobs:
           - npm test
     - stage: build docker image
       script:
+          - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
           - npm run build
+          - docker images
+          - docker tag $DOCKER_USERNAME/expressciboilerplate:$TRAVIS_BUILD_NUMBER $DOCKER_USERNAME/expressciboilerplate:latest 
+          - docker push $DOCKER_USERNAME/expressciboilerplate:latest
+          - docker push $DOCKER_USERNAME/expressciboilerplate:latest
+    
 
