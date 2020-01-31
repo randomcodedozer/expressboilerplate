@@ -2,7 +2,7 @@ FROM node:10-alpine
 WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install
-RUN npm build
+RUN npm run build
 
 # Bundle app source
 COPY . .
