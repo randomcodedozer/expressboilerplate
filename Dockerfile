@@ -1,4 +1,4 @@
-FROM node:10 AS build
+FROM node:10-alpine AS build
 WORKDIR /opt/expressciboilerplate
 COPY package*.json ./
 # install dep modules
@@ -10,8 +10,9 @@ WORKDIR /opt/expressciboilerplate
 ARG SHA
 ENV SHA=${SHA}
 COPY --from=build /opt/expressciboilerplate .
+COPY . .
 EXPOSE 8080
 
 
-CMD ["npm", "run", "start"]
+CMD ["node", "src/app.js"]
 
