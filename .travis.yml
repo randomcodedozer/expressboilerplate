@@ -6,10 +6,10 @@ services:
 jobs:
   include:
     - stage: test
-        install: npm install
-        script: 
-            - npm test
+      install: npm install
+      script: 
+          - npm test
     - stage: build docker image
-        script:
-            - npm build
+      script:
+          - npm build
 
