@@ -3,10 +3,9 @@ node_js:
     - 10
 services:
     - docker
-
 jobs:
   include:
-    - stage: install & test
+    - stage: test
         install: npm install
         script: 
             - npm test
